@@ -34,10 +34,12 @@ board.on('ready', function() {
 
         socket.on('toggle', function(data) {
             debug(data);
+
+            var pin;
             
             switch (data.switch) {
                 case 1:
-                    pin = 'P1-07';
+                    pin = 'P1-7';
                     break;
                 case 2:
                     pin = 'P1-11';
@@ -58,7 +60,7 @@ board.on('ready', function() {
                     pin = 'P1-18';
                     break;
                 case 8:
-                    pin = 'P1-20';
+                    pin = 'P1-22';
                     break;
                 default: 
                     break;
