@@ -18,13 +18,16 @@
 
     <button type="button" id="switch-1">switch 1</button>
     <button type="button" id="switch-2">switch 2</button>
-
     <button type="button" id="switch-3">switch 3</button>
     <button type="button" id="switch-4">switch 4</button>
 
+    <br />
+
     <button type="button" id="switch-5">switch 5</button>
     <button type="button" id="switch-6">switch 6</button>
-    
+    <button type="button" id="switch-7">switch 7</button>
+    <button type="button" id="switch-8">switch 8</button>
+
     <script src="/socketio"></script>
     <script>
         var socket = io(window.location.hostname + ':' + 8080);
@@ -39,6 +42,8 @@
         var switch4 = document.getElementById('switch-4');
         var switch5 = document.getElementById('switch-5');
         var switch6 = document.getElementById('switch-6');
+        var switch7 = document.getElementById('switch-7');
+        var switch8 = document.getElementById('switch-8');
 
         var switchs = {};
 
@@ -48,6 +53,8 @@
         switch4.addEventListener('click', toggle.bind(null, 4));
         switch5.addEventListener('click', toggle.bind(null, 5));
         switch6.addEventListener('click', toggle.bind(null, 6));
+        switch7.addEventListener('click', toggle.bind(null, 7));
+        switch8.addEventListener('click', toggle.bind(null, 8));
 
         function toggle(pin, event) {
             switchs[pin] = !switchs[pin];

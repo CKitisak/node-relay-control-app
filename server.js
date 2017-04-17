@@ -37,22 +37,28 @@ board.on('ready', function() {
             
             switch (data.switch) {
                 case 1:
-                    pin = 'P1-11';
+                    pin = 'P1-07';
                     break;
                 case 2:
-                    pin = 'P1-13';
+                    pin = 'P1-11';
                     break;
                 case 3:
-                    pin = 'P1-15';
+                    pin = 'P1-13';
                     break;
                 case 4:
-                    pin = 'P1-12';
+                    pin = 'P1-15';
                     break;
                 case 5:
-                    pin = 'P1-16';
+                    pin = 'P1-12';
                     break;
                 case 6:
+                    pin = 'P1-16';
+                    break;
+                case 7:
                     pin = 'P1-18';
+                    break;
+                case 8:
+                    pin = 'P1-20';
                     break;
                 default: 
                     break;
