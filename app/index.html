@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Relay Control App</title>
+</head>
+<body>
+    <h1>
+        Simple Relays Control App
+    </h1>
+    <p>
+        By NodeJS, ExpressJS and Socket.IO
+    </p>
+
+    <hr />
+
+    <button type="button" id="switch-1">switch 1</button>
+    <button type="button" id="switch-2">switch 2</button>
+
+    <button type="button" id="switch-3">switch 3</button>
+    <button type="button" id="switch-4">switch 4</button>
+
+    <button type="button" id="switch-5">switch 5</button>
+    <button type="button" id="switch-6">switch 6</button>
+    
+    <script src="/socketio"></script>
+    <script>
+        var socket = io(window.location.hostname + ':' + 8080);
+
+        socket.on('connected', function (data) {
+            console.log(data);
+        });
+
+        var switch1 = document.getElementById('switch-1');
+        var switch2 = document.getElementById('switch-2');
+        var switch3 = document.getElementById('switch-3');
+        var switch4 = document.getElementById('switch-4');
+        var switch5 = document.getElementById('switch-5');
+        var switch6 = document.getElementById('switch-6');
+
+        var switchs = {};
+
+        switch1.addEventListener('click', toggle.bind(null, 1));
+        switch2.addEventListener('click', toggle.bind(null, 2));
+        switch3.addEventListener('click', toggle.bind(null, 3));
+        switch4.addEventListener('click', toggle.bind(null, 4));
+        switch5.addEventListener('click', toggle.bind(null, 5));
+        switch6.addEventListener('click', toggle.bind(null, 6));
+
+        function toggle(pin, event) {
+            switchs[pin] = !switchs[pin];
+            socket.emit('toggle', { switch: pin, state: switchs[pin] });
+        }
+
+        socket.on('toggle', function (data) {
+            console.log(data);
+        });
+    </script>
+</body>
+</html>
